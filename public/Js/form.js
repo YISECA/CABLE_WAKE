@@ -100,19 +100,28 @@ function isValidDate(day,month,year)
 
 $('#fecha_nacimiento').datepicker
 ({
-	    maxDate: '2012-07-06',
-		dateFormat: 'yy-mm-dd',
-		changeMonth: true,
-		changeYear: true,
-		yearRange: "-7:-5"});
+	   maxDate: '2007-08-12',
+
+        dateFormat: 'yy-mm-dd',
+
+        changeMonth: true,
+
+        changeYear: true,
+
+        yearRange: "-14:-11"});
 
 /*$('#fecha_nacimiento').datepicker({
 
-      minDate: new Date(1900,1-1,1), maxDate: '1999-08-06',
-      dateFormat: 'yy-mm-dd',
-      yearRange: "-100:-18",
-      changeMonth: true,
-      changeYear: true,
+    
+        maxDate: '2007-08-12',
+
+        dateFormat: 'yy-mm-dd',
+
+        changeMonth: true,
+
+        changeYear: true,
+
+        yearRange: "-14:-11"});
       });*/
  
 
@@ -157,10 +166,7 @@ $('#edad').click(function(){
 
 	$('#fecha_fin_antepenultimo_contrato').datepicker({dateFormat: 'yy-mm-dd'});
 
-	for(var i=2;i<=2;i++){$('#page'+i).hide();}
 
-	$('body').delegate('#adelante','click',function(){var id= $(this).data('id');$("#page"+id).hide();$("#page"+(id+1)).show();$('#form_gen')});	
- 	$('body').delegate('#atras','click',function(){var id= $(this).data('id');$("#page"+id).hide();$("#page"+(id-1)).show();});
 
 var horas = $.parseJSON($('input[name="horas-json"]').val());
 

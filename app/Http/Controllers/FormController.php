@@ -64,27 +64,39 @@ class FormController extends BaseController
              <th style="text-transform: capitalize;">id</th>
              <th style="text-transform: capitalize;">Nombres</th>
              <th style="text-transform: capitalize;">Apellidos</th> 
-             <th style="text-transform: capitalize;">Documento de identidad</th>           
+             <th style="text-transform: capitalize;">Documento de identidad</th>
+             <th style="text-transform: capitalize;">Fecha de Nacimiento</th>             
              <th style="text-transform: capitalize;">Email</th>
-             <th style="text-transform: capitalize;">Teléfono</th>
              <th style="text-transform: capitalize;">Eps</th>
-             <th style="text-transform: capitalize;">Fecha</th>
-             <th style="text-transform: capitalize;">hora</th>
+             <th style="text-transform: capitalize;">Nombre de contacto de emergencia</th>
+             <th style="text-transform: capitalize;">Teléfono</th>             
+             <th style="text-transform: capitalize;">Fecha de actividad</th>
+             <th style="text-transform: capitalize;">hora de actividad</th>
+             <th style="text-transform: capitalize;">1- ¿En qué año se realizó la primera edición del Festival de Verano de Bogotá?</th>
+             <th style="text-transform: capitalize;">2- ¿Cada cuánto tiempo se realiza el Festival de Verano?</th>             
+             <th style="text-transform: capitalize;">3- ¿Qué organismo gubernamental es el encargado de organizar el Festival?</th>
+             <th style="text-transform: capitalize;">4- ¿Cuál es la sede principal del Festival?</th>
             </tr>
         </thead>
         <tbody id="tabla">';
+
       foreach ($acceso as $key => $value) {
-     
 
        $tabla.='<tr><td>'.$value->id.'</td>';
        $tabla.='<td>'.$value->nombre.'</td>';   
        $tabla.='<td>'.$value->apellido.'</td>';   
-       $tabla.='<td>'.$value->cedula.'</td>';   
-       $tabla.='<td>'.$value->mail.'</td>';    
-       $tabla.='<td>'.$value->telefono.'</td>';
-       $tabla.='<td>'.$value->eps.'</td>';
-       $tabla.='<td>'.$value->horas->fecha['fecha'].'</td>';
-       $tabla.='<td>'.$value->horas['hora'].'</td></tr>';
+       $tabla.='<td>'.$value->cedula.'</td>';
+       $tabla.='<td>'.$value->fecha_nacimiento.'</td>';     
+       $tabla.='<td>'.$value->mail.'</td>';  
+       $tabla.='<td>'.$value->eps.'</td>'; 
+       $tabla.='<td>'.$value->contacto.'</td>'; 
+       $tabla.='<td>'.$value->telefono.'</td>';   
+       $tabla.='<td>'.(!empty($value->horas->fecha['fecha'])?$value->horas->fecha['fecha']:'').'</td>';
+       $tabla.='<td>'.$value->horas['hora'].'</td>';
+       $tabla.='<td>'.$value->pregunta1.'</td>';  
+       $tabla.='<td>'.$value->pregunta2.'</td>'; 
+       $tabla.='<td>'.$value->pregunta3.'</td>'; 
+       $tabla.='<td>'.$value->pregunta4.'</td></tr>';
        
 
       }
@@ -130,14 +142,14 @@ class FormController extends BaseController
         $registros = $this->inscritos($request->input('hora'));
         var_dump($registros->count());
         //exit();
-       if($registros->count() <15){
+       if($registros->count() <2){
 
         $this->store($formulario, $request->input());
 
         Mail::send('email', ['user' => $request->input('mail'),'formulario' => $formulario], function ($m) use ($request) 
         {
-            $m->from('no-reply@idrd.gov.co', 'Registro Exitoso a Buceo - Festival de Verano 2017');
-            $m->to($request->input('mail'), $request->input('primer_nombre'))->subject('Registro Exitoso a Buceo - Festival de Verano 2017');
+            $m->from('no-reply@idrd.gov.co', 'Registro Exitoso a COPA NACIONAL DE SLALOM, FIGURAS Y WAKEBOARD - FESTIVAL DE VERANO 2018');
+            $m->to($request->input('mail'), $request->input('primer_nombre'))->subject('Registro Exitoso a COPA NACIONAL DE SLALOM, FIGURAS Y WAKEBOARD - FESTIVAL DE VERANO 2018');
         });
         
       }else{
@@ -165,12 +177,20 @@ class FormController extends BaseController
     {
         $formulario['nombre'] = $input['nombre'];
         $formulario['apellido'] = $input['apellido'];
+        $formulario['tipo_documento'] = $input['tipo_documento'];
         $formulario['cedula'] = $input['cedula'];
+        $formulario['fecha_nacimiento'] = $input['fecha_nacimiento'];
+        $formulario['eps'] = $input['eps'];
         $formulario['mail'] = $input['mail'];
         $formulario['telefono'] = $input['telefono'];
-        $formulario['eps'] = $input['eps'];
+        $formulario['nombre_contacto'] = $input['nombre_contacto'];
+        $formulario['telefono_contacto'] = $input['telefono_contacto'];
         $formulario['fecha'] = $input['fecha'];
         $formulario['hora'] = $input['hora'];
+        $formulario['pregunta1'] = $input['pregunta1'];
+        $formulario['pregunta2'] = $input['pregunta2'];
+        $formulario['pregunta3'] = $input['pregunta3'];
+        $formulario['pregunta4'] = $input['pregunta4'];
         $formulario->save();
 
         return $formulario;

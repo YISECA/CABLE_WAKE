@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Horas extends Model
 {
     //
-  protected $table = 'horas';
+  protected $table = 'horas_squi';
 
   public function fecha()
   {

@@ -84,7 +84,7 @@
 
 
 
-      <title>BUCEO - FESTIVAL DE VERANO 2017</title>
+      <title>COPA NACIONAL DE SLALOM, FIGURAS Y WAKEBOARD - FESTIVAL DE VERANO 2018</title>
 
   </head>
 
@@ -168,11 +168,11 @@
 
               <div class="col-lg-8 col-md-7 col-sm-6">
 
-                <h1><font size="6" face="Comic Sans MS,arial,verdana">IDRD</font></h1>
+                <h1><font size="6">IDRD</font></h1>
 
                 <p class="lead">
 
-                <h1><font size="5" face="Comic Sans MS,arial,verdana">COMPLEJO ACUÁTICO SIMÓN BOLIVAR </font></h1>
+                <h1><font size="5" >PARQUE SIMÓN BOLIVAR </font></h1>
               
 
                 </p>
@@ -185,7 +185,7 @@
 
                  <div align="right"> 
 
-                    <img src="public/Img/IDRD.JPG" width="50%" heigth="40%"/>
+                    <img src="public/Img/IDRD2.png" width="50%" heigth="40%"/>
 
                  </div>                    
 

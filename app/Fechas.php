@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Fechas extends Model
 {
     //
-  protected $table = 'fecha_buceo';
+  protected $table = 'fecha_squi';
 
   public function horas(){
 	

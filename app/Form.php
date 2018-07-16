@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Form extends Model
 {
-   protected $table = 'buceo';
+   protected $table = 'slalom_2018';
 
 
    public function horas(){
