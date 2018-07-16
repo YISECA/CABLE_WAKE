@@ -92,7 +92,7 @@
       </div>
       <div class="col-xs-6">
          <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput"> Fecha de Nacimiento<span style="color: red;font-size: 18px">*</span></label>
-         <input required type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+         <input required type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" autocomplete="off">
          <br>
       </div>
       <div class="col-xs-6">
@@ -119,7 +119,7 @@
          <input required type="number" class="form-control" id="telefono_contacto" name="telefono_contacto"><br>
       </div>
       <div class="col-xs-6">
-         <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha atención de Buceo<span style="color: red;font-size: 18px">*</span></label>
+         <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput">Fecha atención de actividad<span style="color: red;font-size: 18px">*</span></label>
          <select  required name="fecha" id="fecha" class="form-control" >
             <option value="">Seleccione</option>
             @foreach ($fechas as $fecha)
@@ -128,7 +128,7 @@
          </select>
       </div>
       <div class="col-xs-6">
-         <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Horario atención de Buceo <span style="color: red;font-size: 18px">*</span></label>
+         <label class="freebirdFormviewerViewItemsItemItemTitle" for="formGroupExampleInput2">Horario atención de actividad<span style="color: red;font-size: 18px">*</span></label>
          <select  required name="hora" id="hora" class="form-control" >
             <option value="">Seleccione</option>
          </select>
