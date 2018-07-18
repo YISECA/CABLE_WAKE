@@ -14,6 +14,12 @@ class Form extends Model
 
    }
 
+   public function fechas(){
+  
+  return $this->belongsTo('App\Fechas','fecha');
+
+   }
+
 }
 
 

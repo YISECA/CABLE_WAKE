@@ -142,7 +142,7 @@ class FormController extends BaseController
         $registros = $this->inscritos($request->input('hora'));
         var_dump($registros->count());
         //exit();
-       if($registros->count() <10){
+       if($registros->count() <15){
 
         $this->store($formulario, $request->input());
 
@@ -193,6 +193,8 @@ class FormController extends BaseController
         $formulario['pregunta4'] = $input['pregunta4'];
         $formulario->save();
 
+
+        $formularios= Form::with('fechas','horas')->find($formulario->id);
         return $formulario;
 
         
